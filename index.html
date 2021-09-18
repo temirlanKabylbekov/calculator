@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div class="container is-fluid">
+        <div class="columns">
+            <div class="column is-one-third is-offset-one-third">
+                <p class="title has-text-centered">Калькулятор</p>
+
+                <form action="" method="post">
+                    <div class="field">
+                        <label for="product_price" class="label">Цена товара</label>
+                        <div class="control">
+                            <input class="input is-small is-primary" type="text" placeholder="Введите цену..." name="product_price">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="products_count" class="label">Количество товара</label>
+                        <div class="control">
+                            <input class="input is-small is-primary" type="text" placeholder="Введите количество..." name="products_count">
+                        </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Регион</label>
+                      <div class="control">
+                        <div class="select is-small is-primary">
+                          <select name="region">
+                            {% for region in regions %}
+                                <option value="{{ region }}">{{ region }}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="control buttons is-centered">
+                        <button class="button is-success is-small">Посчитать цену</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer class="footer">
+          <div class="content has-text-centered">
+              {% if message %}
+                <p class="title is-6 has-text-centered">{{ message }}</p>
+              {% endif %}
+          </div>
+        </footer>
+    </div>
+</body>
+</html>
